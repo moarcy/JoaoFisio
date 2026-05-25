@@ -2314,34 +2314,6 @@ ul {
   display: none;
 }
 
-.mobile-sticky-cta {
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .mobile-sticky-cta {
-    display: block;
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    z-index: 1200;
-    text-align: center;
-  }
-
-  .mobile-sticky-cta .btn {
-    display: inline-flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    min-height: 52px;
-    border-radius: 12px;
-    background-color: #25d366;
-    background-image: linear-gradient(135deg, #25d366 0%, #1fb655 100%);
-    color: #ffffff;
-  }
-}
-
 @media (min-width: 768px) and (max-width: 899px) {
   .hero {
     min-height: auto;
