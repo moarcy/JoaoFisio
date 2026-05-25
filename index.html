@@ -131,6 +131,23 @@
             Atendimento especializado no tratamento de dores musculoesqueléticas, reabilitação articular e muscular. Foco no pós-operatório de joelho e recuperação avançada, no conforto de sua casa em Salvador - BA.
           </p>
 
+          <!-- Fallback badge and mobile CTA (visible only on small devices) -->
+          <div class="hero__domiciliary-badge hero__domiciliary-badge--mobile" aria-hidden="true">
+            <i class="fa-solid fa-house-medical" aria-hidden="true"></i>
+            <span>Fisioterapia Domiciliar</span>
+          </div>
+
+          <div class="hero__actions hero__actions--mobile hero__actions--fallback">
+            <a href="https://wa.me/557196826907?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20fisioterapêutica." 
+               class="btn btn--whatsapp" 
+               id="hero-agendar-mobile-fallback"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Agendar avaliação pelo WhatsApp">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              Agendar Avaliação
+            </a>
+          </div>
+
           <div class="hero__actions hero__actions--desktop">
             <a href="https://wa.me/557196826907?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20fisioterapêutica." 
                class="btn btn--whatsapp" 
@@ -599,5 +616,12 @@
   </footer>
 
   <script src="main.js"></script>
+  <!-- Mobile sticky CTA fallback -->
+  <div class="mobile-sticky-cta" aria-hidden="false">
+    <a href="https://wa.me/557196826907?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20fisioterapêutica." class="btn btn--whatsapp" id="mobile-sticky-cta-btn" target="_blank" rel="noopener noreferrer" aria-label="Agendar pelo WhatsApp">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      Agendar Avaliação
+    </a>
+  </div>
 </body>
 </html>
