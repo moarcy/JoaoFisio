@@ -2197,145 +2197,63 @@ ul {
     max-height: 320px;
   }
 
-  /* Show fallback badge/button only on small screens */
-  .hero__domiciliary-badge--mobile {
-    display: inline-flex !important;
-    position: static !important;
-    margin-top: 0.6rem !important;
-    padding: 0.5rem 0.75rem !important;
-    background-color: rgba(33,37,44,0.9) !important;
-    color: #fff !important;
-    border-radius: 9999px !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    z-index: 80 !important;
+  .hero__image-wrap {
+    position: relative;
+    z-index: 0;
   }
 
-  .hero__actions--fallback {
-    display: flex !important;
-    justify-content: center !important;
-    margin-top: 0.85rem !important;
+  .hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 1;
   }
 
-  /* hide desktop/absolute badge on very small devices if it overlaps */
-  .hero__domiciliary-badge:not(.hero__domiciliary-badge--mobile) {
+  .hero__actions--desktop {
     display: none !important;
   }
 
-
-/* Compatibility fallbacks for older browsers / WebViews
-   Ensure critical hero elements render on legacy devices (older Xiaomi, old Android WebViews)
-*/
-.hero__image-wrap {
-  position: relative;
-  z-index: 0;
-}
-
-/* Mobile sticky CTA fallback (shows on small devices) */
-.mobile-sticky-cta {
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .mobile-sticky-cta {
-    display: block !important;
-    position: fixed !important;
-    left: 12px !important;
-    right: 12px !important;
-    bottom: 12px !important;
-    z-index: 1200 !important;
-    text-align: center !important;
-    pointer-events: auto !important;
+  .hero__actions--mobile {
+    display: flex !important;
+    margin-top: 1.15rem;
+    margin-bottom: 0;
+    visibility: visible;
+    opacity: 1;
+    z-index: 70;
   }
 
-  .mobile-sticky-cta .btn {
-    display: inline-block !important;
-    width: 100% !important;
-    padding: 0.85rem 1rem !important;
-    border-radius: 12px !important;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.18) !important;
+  .hero__actions--mobile .btn--whatsapp {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    min-width: 220px;
+    padding: 0.85rem 1.15rem;
+    border-radius: 9999px;
+    background-color: #25d366 !important;
+    background-image: linear-gradient(135deg, #25d366 0%, #1fb655 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.28);
   }
-}
 
-.hero__image {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  max-width: 100% !important;
-  max-height: none !important;
-  opacity: 1 !important;
-}
-
-.hero__image-glow {
-  /* fallback visible glow for old browsers that ignore advanced filters */
-  display: block !important;
-  position: absolute !important;
-  left: 0; right: 0; top: 0; bottom: 0;
-  background: rgba(0,0,0,0.06) !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-}
-
-.hero__domiciliary-badge {
-  position: absolute !important;
-  left: 12px !important;
-  bottom: 12px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  padding: 0.55rem 0.85rem !important;
-  border-radius: 9999px !important;
-  background-color: rgba(33,37,44,0.9) !important;
-  color: #fff !important;
-  font-weight: 700 !important;
-  font-size: 0.9rem !important;
-  z-index: 60 !important;
-}
-
-/* Buttons fallback: ensure visible and clickable */
-.hero__actions,
-.hero__actions--mobile,
-.hero__actions--desktop {
-  z-index: 70 !important;
-}
-
-.hero__actions--mobile {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-.btn {
-  display: inline-block !important;
-  text-decoration: none !important;
-  -webkit-text-size-adjust: 100% !important;
-}
-
-/* Ensure mobile action buttons have measurable box on old browsers */
-.hero__actions--mobile .btn,
-.hero__actions--mobile a {
-  display: inline-block !important;
-  padding: 0.85rem 1rem !important;
-  min-width: 140px !important;
-  text-align: center !important;
-  border-radius: 8px !important;
-}
-
-.hero__actions--mobile {
-  display: flex !important;
-  gap: 0.5rem !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding-top: 0.5rem !important;
-}
-
-/* Reduce complex effects that may not render reliably */
-.hero__image-glow,
-.hero__domiciliary-badge i,
-.hero__pillars-grid {
-  -webkit-filter: none !important;
-  filter: none !important;
-}
+  .hero__domiciliary-badge {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    z-index: 80;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    border-radius: 9999px;
+    background: rgba(33, 37, 44, 0.92);
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.24);
+  }
   .hero__image-card {
     top: 0.45rem;
     right: 0.45rem;
@@ -2382,6 +2300,45 @@ ul {
     display: block;
     flex-basis: 100%;
     height: 2rem;
+  }
+}
+
+/* Compatibility fallbacks for older browsers / WebViews */
+.btn--whatsapp {
+  background-color: #25d366;
+  background-image: linear-gradient(135deg, #25d366 0%, #1fb655 100%);
+  color: #ffffff;
+}
+
+.btn--whatsapp::after {
+  display: none;
+}
+
+.mobile-sticky-cta {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobile-sticky-cta {
+    display: block;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1200;
+    text-align: center;
+  }
+
+  .mobile-sticky-cta .btn {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    min-height: 52px;
+    border-radius: 12px;
+    background-color: #25d366;
+    background-image: linear-gradient(135deg, #25d366 0%, #1fb655 100%);
+    color: #ffffff;
   }
 }
 
