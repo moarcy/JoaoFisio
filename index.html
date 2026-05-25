@@ -123,8 +123,8 @@
           </div>
 
           <h1 class="hero__title">
-            Especialista em<br />
-            Pós-Operatório e Reabilitação Ortopédica.
+            <span class="hero__title-line">Especialista em Pós-Operatório</span>
+            <span class="hero__title-line">e Reabilitação Ortopédica.</span>
           </h1>
 
           <p class="hero__subtitle">
@@ -133,7 +133,7 @@
 
           <div class="hero__actions hero__actions--desktop">
             <a href="https://wa.me/557196826907?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20fisioterapêutica." 
-               class="btn btn--hero-outline" 
+               class="btn btn--whatsapp" 
                id="hero-agendar"
                target="_blank" rel="noopener noreferrer"
                aria-label="Agendar avaliação pelo WhatsApp">
@@ -152,8 +152,7 @@
                  class="hero__image"
                  loading="eager" />
             <!-- hero__image-card removido conforme solicitado -->
-            
-            <div class="about__floater about__floater--2">
+            <div class="hero__domiciliary-badge">
               <i class="fa-solid fa-house-medical" aria-hidden="true"></i>
               <span>Fisioterapia Domiciliar</span>
             </div>
@@ -177,7 +176,7 @@
 
           <div class="hero__actions hero__actions--mobile">
             <a href="https://wa.me/557196826907?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20fisioterapêutica." 
-               class="btn btn--hero-outline" 
+               class="btn btn--whatsapp" 
                id="hero-agendar-mobile"
                target="_blank" rel="noopener noreferrer"
                aria-label="Agendar avaliação pelo WhatsApp">
@@ -197,12 +196,24 @@
     <section class="about" id="sobre" aria-label="Sobre João Queiroz">
       <div class="container about__inner">
 
-        <div class="about__content">
+        <div class="about__content about__content--intro">
           <div class="section-label" aria-label="Rótulo da seção">Sobre o profissional</div>
           <h2 class="section-title">Atendimento especializado para reabilitação e retorno ao movimento.</h2>
           <p class="about__text">
             João Queiroz é fisioterapeuta especializado em reabilitação ortopédica e esportiva, com experiência prática no acompanhamento de atletas e pacientes em processo de recuperação funcional, incluindo atuação no <strong>Sport Clube Camaçariense de Salvador</strong>.
           </p>
+        </div>
+
+        <div class="about__visual" aria-hidden="true">
+          <div class="about__img-frame">
+            <img src="images/IMG_9725.JPG.jpeg"
+                 alt="João Queiroz atuando como fisioterapeuta"
+                 class="about__img"
+                 loading="lazy" />
+          </div>
+        </div>
+
+        <div class="about__details">
           <p class="about__text">
             Seu trabalho é focado em entregar resultados reais através de um atendimento individualizado, direcionado para controle da dor, recuperação de movimentos, fortalecimento muscular e retorno seguro às atividades do dia a dia e ao esporte.
           </p>
@@ -238,7 +249,7 @@
           </ul>
 
           <a href="https://wa.me/557196826907?text=Olá%2C%20gostaria%20de%20mais%20informações%20sobre%20o%20atendimento." 
-             class="btn btn--primary" 
+             class="btn btn--whatsapp" 
              id="sobre-cta"
              target="_blank" rel="noopener noreferrer">
             Conhecer o Atendimento
@@ -254,7 +265,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-label">O que fazemos</div>
-          <h2 class="section-title">Nossas <span class="highlight">Especialidades</span></h2>
+          <h2 class="section-title">Nossas Especialidades</h2>
           <p class="section-description">
             Tratamentos especializados com protocolos individualizados para cada paciente, 
             garantindo a melhor recuperação e desempenho possíveis.
@@ -265,12 +276,14 @@
 
           <!-- Card 1 – Ortopédica -->
           <article class="specialty-card specialty-card--ortho" id="card-ortopedica" aria-label="Especialidade: Fisioterapia Ortopédica">
-            <div class="specialty-card__icon-wrap" aria-hidden="true">
-              <div class="specialty-card__icon">
-                <i class="fa-solid fa-bone" aria-hidden="true"></i>
+            <div class="specialty-card__header">
+              <div class="specialty-card__icon-wrap" aria-hidden="true">
+                <div class="specialty-card__icon">
+                  <i class="fa-solid fa-bone" aria-hidden="true"></i>
+                </div>
               </div>
+              <h3 class="specialty-card__title">Fisioterapia Ortopédica</h3>
             </div>
-            <h3 class="specialty-card__title">Fisioterapia Ortopédica</h3>
             <p class="specialty-card__text">
               Tratamento especializado para recuperação de lesões ortopédicas, dores crônicas e reabilitação funcional, 
               com foco na melhora da mobilidade e qualidade de vida.
@@ -284,23 +297,25 @@
               <li>Mobilidade e estabilidade articular</li>
             </ul>
             <a href="https://wa.me/557196826907?text=Olá%2C%20tenho%20interesse%20em%20fisioterapia%20ortopédica." 
-               class="specialty-card__cta" 
+               class="btn btn--whatsapp btn--whatsapp--compact specialty-card__cta" 
                id="cta-ortopedica"
                target="_blank" rel="noopener noreferrer"
                aria-label="Agendar fisioterapia ortopédica">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
               Agendar Consulta
-              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
           </article>
 
           <!-- Card 2 – Esportiva -->
           <article class="specialty-card specialty-card--sport" id="card-esportiva" aria-label="Especialidade: Fisioterapia Esportiva">
-            <div class="specialty-card__icon-wrap" aria-hidden="true">
-              <div class="specialty-card__icon">
-                <i class="fa-solid fa-person-running" aria-hidden="true"></i>
+            <div class="specialty-card__header">
+              <div class="specialty-card__icon-wrap" aria-hidden="true">
+                <div class="specialty-card__icon">
+                  <i class="fa-solid fa-person-running" aria-hidden="true"></i>
+                </div>
               </div>
+              <h3 class="specialty-card__title">Fisioterapia Esportiva</h3>
             </div>
-            <h3 class="specialty-card__title">Fisioterapia Esportiva</h3>
             <p class="specialty-card__text">
               Atendimento voltado para atletas e praticantes de atividade física que desejam melhorar o desempenho, 
               prevenir lesões e retornar ao esporte com segurança e alta performance.
@@ -314,23 +329,25 @@
               <li>Preparação física funcional</li>
             </ul>
             <a href="https://wa.me/557196826907?text=Olá%2C%20tenho%20interesse%20em%20fisioterapia%20esportiva." 
-               class="specialty-card__cta specialty-card__cta--sport"
+               class="btn btn--whatsapp btn--whatsapp--compact specialty-card__cta"
                id="cta-esportiva"
                target="_blank" rel="noopener noreferrer"
                aria-label="Agendar fisioterapia esportiva">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
               Agendar Consulta
-              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
           </article>
 
           <!-- Card 3 – Domiciliar -->
           <article class="specialty-card specialty-card--home" id="card-domiciliar" aria-label="Atendimento domiciliar">
-            <div class="specialty-card__icon-wrap" aria-hidden="true">
-              <div class="specialty-card__icon">
-                <i class="fa-solid fa-house-medical" aria-hidden="true"></i>
+            <div class="specialty-card__header">
+              <div class="specialty-card__icon-wrap" aria-hidden="true">
+                <div class="specialty-card__icon">
+                  <i class="fa-solid fa-house-medical" aria-hidden="true"></i>
+                </div>
               </div>
+              <h3 class="specialty-card__title">Atendimento Domiciliar</h3>
             </div>
-            <h3 class="specialty-card__title">Atendimento Domiciliar</h3>
             <p class="specialty-card__text">
               O atendimento é realizado diretamente na sua residência em Salvador - BA, 
               garantindo conforto, praticidade e acompanhamento individualizado em cada sessão.
@@ -344,12 +361,12 @@
               <li>Ambiente familiar para recuperação</li>
             </ul>
             <a href="https://wa.me/557196826907?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20domiciliar." 
-               class="specialty-card__cta specialty-card__cta--home"
+               class="btn btn--whatsapp btn--whatsapp--compact specialty-card__cta"
                id="cta-domiciliar"
                target="_blank" rel="noopener noreferrer"
                aria-label="Saber mais sobre atendimento domiciliar">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
               Saiba Mais
-              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
           </article>
         </div>
@@ -363,7 +380,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-label">Processo</div>
-          <h2 class="section-title">Como funciona o <span class="highlight">atendimento</span></h2>
+          <h2 class="section-title">Como funciona o atendimento</h2>
           <p class="section-description">
             Um processo claro e humanizado, pensado para a sua melhor recuperação desde o primeiro contato.
           </p>
@@ -382,7 +399,7 @@
           <div class="step" id="step-2">
             <div class="step__number" aria-hidden="true">02</div>
             <div class="step__content">
-              <h3 class="step__title">Plano individualizado baseado em evidências científicas</h3>
+              <h3 class="step__title">Plano baseado em evidências científicas</h3>
               <p class="step__text">Definição de um plano de tratamento personalizado, adaptado às suas necessidades e metas específicas.</p>
             </div>
           </div>
@@ -415,7 +432,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-label">Por que nos escolher</div>
-          <h2 class="section-title">Diferenciais do <span class="highlight">atendimento</span></h2>
+          <h2 class="section-title">Diferenciais do atendimento</h2>
         </div>
 
         <div class="benefits__grid">
@@ -492,7 +509,7 @@
         </p>
         <div class="cta-section__actions">
           <a href="https://wa.me/557196826907?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20fisioterapêutica." 
-             class="btn btn--white" 
+             class="btn btn--whatsapp" 
              id="cta-whatsapp-final"
              target="_blank" rel="noopener noreferrer"
              aria-label="Agendar pelo WhatsApp">
@@ -522,7 +539,7 @@
   <footer class="footer" role="contentinfo">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <img src="images/IMG_7407.PNG" alt="João Queiroz Fisioterapia" class="footer__logo" />
+        <img src="images/IMG_7237.JPG.jpeg" alt="João Queiroz Fisioterapia" class="footer__logo" />
         <p class="footer__tagline">Fisioterapia Ortopédica e Esportiva<br />em Salvador - BA</p>
       </div>
 
