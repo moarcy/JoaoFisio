@@ -107,7 +107,7 @@
 // ─── Intersection Observer: scroll animations ────────────
 (function initScrollAnimations() {
   const elements = document.querySelectorAll(
-    '.specialty-card, .benefit-item, .step, .about__target-item'
+    '.specialty-card, .benefit-item, .step, .about__target-item, .testimonial-card'
   );
 
   if (!elements.length) return;
@@ -270,6 +270,121 @@
       card.style.transition = 'none';
     });
   });
+})();
+
+
+
+// ─── Carrossel de Depoimentos ───────────────────────────
+(function initTestimonialsCarousel() {
+  const carousel = document.getElementById('testimonialsCarousel');
+  const prevBtn  = document.getElementById('testimonialPrev');
+  const nextBtn  = document.getElementById('testimonialNext');
+  const dotsWrap = document.getElementById('testimonialDots');
+
+  if (!carousel) return;
+
+  const cards = Array.from(carousel.querySelectorAll('.testimonial-card'));
+  if (!cards.length) return;
+
+  // ── Criar indicadores (dots) ──────────────────────────
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'testimonials__dot' + (i === 0 ? ' testimonials__dot--active' : '');
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `Depoimento ${i + 1}`);
+    dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    dot.dataset.index = i;
+    dot.addEventListener('click', () => scrollToCard(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsWrap.querySelectorAll('.testimonials__dot'));
+
+  // ── Calcular índice visível ───────────────────────────
+  function getActiveIndex() {
+    const scrollLeft = carousel.scrollLeft;
+    let closest = 0;
+    let minDist  = Infinity;
+    cards.forEach((card, i) => {
+      const dist = Math.abs(card.offsetLeft - scrollLeft);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    return closest;
+  }
+
+  // ── Atualizar dots e botões ───────────────────────────
+  function updateUI() {
+    const idx = getActiveIndex();
+    dots.forEach((d, i) => {
+      d.classList.toggle('testimonials__dot--active', i === idx);
+      d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+    });
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === cards.length - 1;
+  }
+
+  // ── Navegar para um card pelo índice ─────────────────
+  function scrollToCard(idx) {
+    const card = cards[idx];
+    if (!card) return;
+    carousel.scrollTo({ left: card.offsetLeft, behavior: 'smooth' });
+  }
+
+  // ── Setas ─────────────────────────────────────────────
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      scrollToCard(Math.max(0, getActiveIndex() - 1));
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      scrollToCard(Math.min(cards.length - 1, getActiveIndex() + 1));
+    });
+  }
+
+  // ── Sincronizar dots com scroll ──────────────────────
+  let scrollTimer;
+  carousel.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(updateUI, 80);
+  }, { passive: true });
+
+  // ── Drag-to-scroll com Mouse (Apenas Desktop) ─────────
+  let isDragging = false;
+  let startX     = 0;
+  let startScroll = 0;
+
+  carousel.addEventListener('mousedown', (e) => {
+    isDragging  = true;
+    startX      = e.pageX - carousel.offsetLeft;
+    startScroll = carousel.scrollLeft;
+    // Removemos os estilos que conflitam com arrastar manualmente
+    carousel.style.scrollBehavior = 'auto';
+    carousel.style.scrollSnapType = 'none'; 
+  });
+
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x    = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 1.5; // Velocidade do arraste
+    carousel.scrollLeft = startScroll - walk;
+  });
+
+  const stopDrag = () => {
+    if (!isDragging) return;
+    isDragging = false;
+    // Devolvemos os estilos nativos após o arraste
+    carousel.style.scrollBehavior = 'smooth';
+    carousel.style.scrollSnapType = 'x mandatory';
+    updateUI();
+  };
+
+  carousel.addEventListener('mouseup',    stopDrag);
+  carousel.addEventListener('mouseleave', stopDrag);
+
+  // ── Init ──────────────────────────────────────────────
+  updateUI();
 })();
 
 
